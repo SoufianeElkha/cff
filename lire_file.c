@@ -77,7 +77,6 @@ int convert_ville_to_nbr(char *nome, int tot_indice, Liste *my_cities)
 void matrice_original(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
 {
 
-
   for (int i = 0; i < tot_indice; i++)
   {
     for (int j = 0; j < tot_indice; j++)
@@ -109,4 +108,31 @@ void matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot
   }
 }
 
+//Return Nombre de l'indice de la Ville pris in input
+//type --> si 0 alors on return le depart
+//type --> si 1 alors on return l'arrive
+char *input(char *depart, char *arrive, int tot_indice, Liste *my_cities, int type)
+{
 
+  if (type == 0)
+  {
+    printf("\nDepart: ");
+    scanf("%s", depart);
+
+    if (exixte(tot_indice, my_cities, depart) != 1)
+      printf("Ville non trouvée\n");
+
+    return depart;
+  }
+
+  if (type == 1)
+  {
+    printf("Arrive: ");
+    scanf("%s", arrive);
+    if (exixte(tot_indice, my_cities, arrive) != 1)
+      printf("Ville non trouvée\n");
+
+    return arrive;
+  }
+  return 0;
+}
