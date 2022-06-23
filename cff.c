@@ -10,13 +10,9 @@
 
 int main()
 {
-    Liste my_cities[1000];
-    Liste my_connections[1000];
+    // Declaration dela liste
     File path = fileVide();
-
     int records = 0;
-    int dep = 0;
-    int arr = 0;
 
     int tot_indice = lire_file(my_cities, "data/cities.csv", records, 0);
     int valore = lire_file(my_connections, "data/connections.csv", records, 0);
@@ -36,8 +32,8 @@ int main()
     // Creation de la matrice next
     matrice_next(tot_indice, matr, next);
 
-    dep = convert_ville_to_nbr(input(depart,arrive,tot_indice, my_cities, 0), tot_indice, my_cities);
-    arr = convert_ville_to_nbr(input(arrive,arrive,tot_indice, my_cities, 1), tot_indice, my_cities);
+    int dep = convert_ville_to_nbr(input(depart, arrive, tot_indice, my_cities, 0), tot_indice, my_cities);
+    int arr = convert_ville_to_nbr(input(arrive, arrive, tot_indice, my_cities, 1), tot_indice, my_cities);
 
     // First City
     enfiler(path, dep);
@@ -49,11 +45,7 @@ int main()
 
     ecrireFile(path, my_cities, tot_indice, matr);
     defiler(path);
-    free(ville1);
-    free(ville2);
-    free(depart);
-    free(arrive);
-    free(name);
+    free_tot(ville1, ville2, name, depart, arrive);
     free(path);
     fflush(stdout);
     return 0;

@@ -108,9 +108,9 @@ void matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot
   }
 }
 
-//Return Nombre de l'indice de la Ville pris in input
-//type --> si 0 alors on return le depart
-//type --> si 1 alors on return l'arrive
+// Return Nombre de l'indice de la Ville pris in input
+// type --> si 0 alors on return le depart
+// type --> si 1 alors on return l'arrive
 char *input(char *depart, char *arrive, int tot_indice, Liste *my_cities, int type)
 {
 
@@ -135,4 +135,16 @@ char *input(char *depart, char *arrive, int tot_indice, Liste *my_cities, int ty
     return arrive;
   }
   return 0;
+}
+
+void free_tot(char *__ptr1, char *__ptr2, char *__ptr3, char *__ptr4, char *__ptr5)
+{
+
+  free(__ptr1);
+  free(__ptr2);
+  free(__ptr3);
+  free(__ptr4);
+  free(__ptr5);
+
+  fflush(stdout);
 }
