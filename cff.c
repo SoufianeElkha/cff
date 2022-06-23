@@ -6,7 +6,7 @@
 #include "liste.h"
 #include "cellule.h"
 
-// INVIO numero 3
+// INVIO numero 4
 
 int main()
 {
@@ -37,16 +37,12 @@ int main()
     scanf("%s", depart);
 
     if (exixte(tot_indice, my_cities, depart) != 1)
-    {
         printf("Ville non trouvée\n");
-    }
 
     printf("Arrive: ");
     scanf("%s", arrive);
     if (exixte(tot_indice, my_cities, arrive) != 1)
-    {
         printf("Ville non trouvée\n");
-    }
 
     int dep = convert_ville_to_nbr(depart, tot_indice, my_cities);
     int arr = convert_ville_to_nbr(arrive, tot_indice, my_cities);

@@ -106,17 +106,14 @@ void ecrireFile(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
       cellule = cellule->suivant;
       a++;
       if (a > tot_indice)
-      {
          tab = realloc(tab, 10 * sizeof(int));
-      }
    }
    tab[a + 1] = 0;
    printf("]\n");
    int somma = 0;
    for (int i = 0; i < (longueur(F) - 1); i++)
-   {
       somma = matr[tab[i]][tab[i + 1]] + somma;
-   }
+
    printf("\nTemps de parcours est: %d minutes", somma);
 
    free(tab);
@@ -127,20 +124,17 @@ int exixte(int tot_indice, Liste *my_cities, char *ville)
 {
    int control = 0;
    for (int i = 0; i < tot_indice; i++)
-   {
       if (strcmp(ville, my_cities[i].ville1) == 0)
-      {
          control = 1;
-      }
-   }
+
    return control;
 }
 
 void matrice(char *name, char *ville1, char *ville2, int valore, int tot_indice, Liste *my_cities, Liste *my_connections, int matr[tot_indice][tot_indice])
 {
 
-   int tab1[4000];
-   int tab2[4000];
+   int *tab1 = (int *)malloc(4000 * sizeof(int *));
+   int *tab2 = (int *)malloc(4000 * sizeof(int *));
    int cnt1 = 0;
    int cnt2 = 0;
 
@@ -154,6 +148,12 @@ void matrice(char *name, char *ville1, char *ville2, int valore, int tot_indice,
 
          for (int c = 0; c < tot_indice; c++)
          {
+            if (*tab1 == 4000)
+               tab1 = realloc(tab1, 50);
+
+            if (*tab2 == 4000)
+               tab2 = realloc(tab2, 50);
+
             strcpy(name, my_cities[c].ville1);
 
             if (strcmp(name, ville1) == 0)
@@ -178,4 +178,7 @@ void matrice(char *name, char *ville1, char *ville2, int valore, int tot_indice,
    // Update matrice
    for (int i = 0; i < valore; i++)
       matr[tab1[i]][tab2[i]] = my_connections[i].dist;
+
+   free(tab1);
+   free(tab2);
 }
