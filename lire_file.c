@@ -29,7 +29,6 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
       records++;
       my_liste[records].indice = records;
     } while (!feof(file));
-    fclose(file);
   }
 
   if (type_file == 1)
@@ -43,7 +42,6 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
 
       records++;
     } while (!feof(file));
-    fclose(file);
   }
 
   if (type_file == 2)
@@ -57,8 +55,8 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
              &my_liste[records].indice);
 
     } while (!feof(file));
-    fclose(file);
   }
+  fclose(file);
   return records;
 }
 

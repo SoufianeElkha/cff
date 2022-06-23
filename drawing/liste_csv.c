@@ -2,6 +2,7 @@
 #include <string.h>
 #include <malloc.h>
 #include "liste_cvs.h"
+#include "gfx.h"
 
 int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
 {

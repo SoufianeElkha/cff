@@ -3,16 +3,18 @@
 #include "gfx.h"
 #include "liste_cvs.h"
 
+void render(struct gfx_context_t *context, int width, int height);
+
 void render(struct gfx_context_t *context, int width, int height)
 {
 
 	Liste pos_swiss[4000];
-	int pos = lire_file(pos_swiss, "swiss.txt",0,1);
+	int pos = lire_file(pos_swiss, "swiss.txt", 0, 1);
 
 	gfx_clear(context, COLOR_WHITE);
 	for (int i = 0; i < pos; i++)
 	{
-		gfx_drawline(context, pos_swiss[i].dist, pos_swiss[i].indice,pos_swiss[i].dist, pos_swiss[i].indice,COLOR_BLACK);
+		gfx_drawline(context, pos_swiss[i].dist, pos_swiss[i].indice, pos_swiss[i].dist, pos_swiss[i].indice, COLOR_BLACK);
 	}
 }
 
