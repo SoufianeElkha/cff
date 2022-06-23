@@ -6,8 +6,6 @@
 #include "cellule.h"
 #include "lire_file.h"
 
-
-
 File fileVide()
 {
    File F;
@@ -92,7 +90,7 @@ void defiler(File F)
 //    return (element);
 // }
 
-void ecrireFile(File F,Liste *my_cities, int tot_indice, int matr[tot_indice][tot_indice])
+void ecrireFile(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][tot_indice])
 {
    Cellule cellule;
    printf("\nChemins:\n[");
@@ -130,8 +128,10 @@ int exixte(int tot_indice, Liste *my_cities, char *ville)
    int control = 0;
    for (int i = 0; i < tot_indice; i++)
    {
-      if (strcmp(ville, my_cities[i].ville1) == 0){control = 1;}
+      if (strcmp(ville, my_cities[i].ville1) == 0)
+      {
+         control = 1;
+      }
    }
    return control;
-      
 }

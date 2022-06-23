@@ -6,7 +6,7 @@
 #include "liste.h"
 #include "cellule.h"
 
-//INVIO numero 2
+// INVIO numero 3
 
 int main()
 {
@@ -71,22 +71,27 @@ int main()
     matrice_original(tot_indice, matr, next);
     matrice_next(tot_indice, matr, next);
 
-
     char depart[30];
     char arrive[30];
     printf("\nDepart: ");
     scanf("%s", depart);
 
-    if (exixte(tot_indice, my_cities, depart) != 1){printf("Ville non trovata\n");}
+    if (exixte(tot_indice, my_cities, depart) != 1)
+    {
+        printf("Ville non trovata\n");
+    }
 
     printf("Arrive: ");
     scanf("%s", arrive);
-    if (exixte(tot_indice, my_cities, arrive) != 1){printf("Ville non trovata\n");}
+    if (exixte(tot_indice, my_cities, arrive) != 1)
+    {
+        printf("Ville non trovata\n");
+    }
 
     int dep = convert_ville_to_nbr(depart, tot_indice, my_cities);
     int arr = convert_ville_to_nbr(arrive, tot_indice, my_cities);
 
-    //Cellule cellule
+    // Cellule cellule
     File path = fileVide();
     enfiler(path, dep);
     while (dep != arr)
@@ -96,35 +101,10 @@ int main()
         enfiler(path, dep);
     }
     printf("\n");
-    
-    ecrireFile(path,my_cities,tot_indice,matr);
 
+    ecrireFile(path, my_cities, tot_indice, matr);
     defiler(path);
 
-
-
-
-
-
-
-
-
-
-    // int N = valore;
-    // printf("\n\n/**************************************************/\n\n");
-    // pSommet *graphe = NULL;
-    // graphe = CreerGraphe(N);
-    // for (int i = 0; i < valore; i++)
-    // {
-    //     graphe = CreerArete(graphe, tab[i], tab2[i], my_connections[i].dist);
-    // }
-
-    // affiche(graphe, valore);
-    // // InitialParcourLongueur(graphe, N);
-    // printf("\n");
-    // // InitialParcourLargeur(graphe, N);
-
-    // free(graphe);
     free(ville1);
     free(ville2);
     free(name);
