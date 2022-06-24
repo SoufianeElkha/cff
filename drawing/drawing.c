@@ -7,10 +7,10 @@ void render(struct gfx_context_t *context, int width, int height);
 
 void render(struct gfx_context_t *context, int width, int height)
 {
-		int *x=(int*)malloc(500*sizeof(int*));
-    int *y=(int*)malloc(500*sizeof(int*));
+	int *x = (int *)malloc(500 * sizeof(int *));
+	int *y = (int *)malloc(500 * sizeof(int *));
 	Liste pos_swiss[4000];
-	int pos = lire_file_perimetre("swiss.txt",x,y);
+	int pos = lire_file_perimetre("swiss.txt", x, y);
 
 	gfx_clear(context, COLOR_WHITE);
 	for (int i = 0; i < pos; i++)
@@ -21,8 +21,6 @@ void render(struct gfx_context_t *context, int width, int height)
 
 int main(int argc, char **argv)
 {
-
-
 
 	char buffer[100];
 	int width = 1200, height = 900;
