@@ -9,7 +9,6 @@
 #include "drawing.h"
 #include "gfx.h"
 
-// INVIO numero 4
 
 int main()
 {
@@ -71,15 +70,17 @@ int main()
                 fprintf(stderr, ">Graphics initialization failed!\n");
                 return EXIT_FAILURE;
             }
-            render(ctxt);
+            render(ctxt,path);
             gfx_present(ctxt);
+            defiler(path_next);
         }
-        defiler(path);
+        
     }
     // Liberation de la memoire occupe
     free_tot(ville1, ville2, name);
     free(buffer);
     defiler(path);
+
     fflush(stdout);
 
     exit(0);

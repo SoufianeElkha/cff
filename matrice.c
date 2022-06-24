@@ -36,7 +36,7 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
     printf("\n>Le temps de parcours est: %d minutes", add);
 
     free(tab);
-    free(cellule);
+    //free(cellule);
 }
 // Retourn 1 si la ville existe dans le tableau
 int existe(int tot_indice, Liste *my_cities, char *ville)
@@ -129,14 +129,27 @@ void matrice_next(File path_next, int tot_indice, int matr[tot_indice][tot_indic
 {
     // Matrice Next
     for (int k = 0; k < tot_indice; ++k)
+    {
         for (int i = 0; i < tot_indice; ++i)
+        {
             for (int j = 0; j < tot_indice; ++j)
+            {
                 if (matr[i][j] > matr[i][k] + matr[k][j])
                 {
                     matr[i][j] = matr[i][k] + matr[k][j];
                     next[i][j] = next[i][k];
-                    enfiler(path_next, next[i][j]);
                 }
+            }
+        }
+    }
+
+    for (int i = 0; i < tot_indice; i++)
+    {
+        for (int j = 0; j < tot_indice; j++)
+        {
+            enfiler(path_next, next[i][j]);
+        }
+    }
 }
 
 // Return Nombre de l'indice de la Ville pris in input
