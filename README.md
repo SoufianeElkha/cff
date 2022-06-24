@@ -1,9 +1,9 @@
 # tp17 - Soufiane El kharmoudi
 # Recherce du plus court chemin dans un réseau ferré
 
-# #Voici les commandes pour exécuter le programme:
+## Voici les commandes pour exécuter le programme:
 
-# #Se déplacer dans le dossier src :
+## Se déplacer dans le dossier src :
 
 ```c
 make clean && make
@@ -27,7 +27,8 @@ make run
 3. Trajet de couleur Rouge
 4. Ville de départ avec le plus grand carré par rapport aux autres villes
 5. Itinéraire avec changement de couleur du cadre en rouge pour mieux identifier le trajet 
-6. Gestion correcte du mode "Quitter"
+6. Lorsque je cherche un itinéraire, je peux décider d’imprimer la carte ou non, même si j’imprime la carte, je peux effectuer une autre    recherche et mettre à jour la carte.
+7. Gestion correcte du mode "Quitter"
 
 # Erreurs
 
