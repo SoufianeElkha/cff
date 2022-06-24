@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <malloc.h>
 #include "lire_file.h"
-#include "file.h"
-#include "cellule.h"
 
 int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
 {
@@ -32,19 +26,6 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
     } while (!feof(file));
   }
 
-  // Lecture 2 int
-  if (type_file == 1)
-  {
-    do
-    {
-      fscanf(file,
-             "%d, %d\n",
-             &my_liste[records].dist,
-             &my_liste[records].indice);
-
-      records++;
-    } while (!feof(file));
-  }
   // Lecture 1string et 2 int
   if (type_file == 2)
   {

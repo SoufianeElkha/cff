@@ -1,6 +1,13 @@
 #ifndef _LIRE_FILE_H
 #define _LIRE_FILE_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <malloc.h>
+#include "file.h"
+#include "cellule.h"
+
 struct _liste
 {
 

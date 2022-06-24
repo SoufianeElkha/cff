@@ -1,8 +1,13 @@
 #ifndef _FILE_H_
 #define _FILE_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <malloc.h>
 #include "cellule.h"
 #include "lire_file.h"
+
 #define fileEstVide(F) ((F)->longueur == 0)
 struct _file
 {

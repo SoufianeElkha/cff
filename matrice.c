@@ -1,17 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <malloc.h>
-#include "file.h"
-#include "cellule.h"
-#include "lire_file.h"
 #include "matrice.h"
 
+//Imprimer le trajet avec les noms des villes et le temps
 void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][tot_indice])
 {
     Cellule cellule;
     int *tab = malloc(tot_indice * sizeof(int *));
-    int add = 0;
+    int addition = 0;
     int a = 0;
     printf("\n>Le trajet est:[");
     if (F == NULL)
@@ -31,12 +25,11 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
     printf("]");
 
     for (int i = 0; i < (longueur(F) - 1); i++)
-        add = matr[tab[i]][tab[i + 1]] + add;
+        addition = matr[tab[i]][tab[i + 1]] + addition;
 
-    printf("\n>Le temps de parcours est: %d minutes", add);
+    printf("\n>Le temps de parcours est: %d minutes", addition);
 
     free(tab);
-    // free(cellule);
 }
 // Retourn 1 si la ville existe dans le tableau
 int existe(int tot_indice, Liste *my_cities, char *ville)
@@ -48,10 +41,9 @@ int existe(int tot_indice, Liste *my_cities, char *ville)
 
     return existe;
 }
-
+//Création de la première matrice
 void matrice(char *name, char *ville1, char *ville2, int tot_connections, int tot_indice, Liste *my_cities, Liste *my_connections, int matr[tot_indice][tot_indice])
 {
-
     int *tab1 = (int *)malloc(4000 * sizeof(int *));
     int *tab2 = (int *)malloc(4000 * sizeof(int *));
     int cnt1 = 0;
@@ -89,12 +81,12 @@ void matrice(char *name, char *ville1, char *ville2, int tot_connections, int to
             }
         }
     }
-
+    //Grand nombre par ville non connectée
     for (int i = 0; i < tot_indice; i++)
         for (int j = 0; j < tot_indice; j++)
-            matr[i][j] = 10000;
+            matr[i][j] = 9999;
 
-    // Update matrice
+    //Chargement de la matrice
     for (int i = 0; i < tot_connections; i++)
         matr[tab1[i]][tab2[i]] = my_connections[i].dist;
 
@@ -184,16 +176,20 @@ char *input(char *name, int tot_indice, Liste *my_cities, int type)
     }
     return 0;
 }
-
-void free_tot(char *__ptr1, char *__ptr2, char *__ptr3)
+//fonction free pour main
+void free_tot(char *__ptr1, char *__ptr2, char *__ptr3, char *__ptr4, File path, File path_next)
 {
     free(__ptr1);
     free(__ptr2);
     free(__ptr3);
-
+    free(__ptr4);
+    free(path);
+    free(path_next);
     fflush(stdout);
 }
 
+
+//sortir du while en cas 'quitter'
 void exit_prog(char *buffer)
 {
     if (strcmp(buffer, "quitter") == 0)

@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <malloc.h>
 #include "file.h"
-#include "cellule.h"
-#include "lire_file.h"
 
 File file_vide()
 {
@@ -57,9 +51,6 @@ typage tete(File F)
 void defiler(File F)
 {
    Cellule cellule;
-
-   if (F == NULL || longueur(F) == 0)
-      printf("File existe pas - defiler");
    while (longueur(F) != 0)
    {
 
