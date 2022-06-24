@@ -34,11 +34,10 @@ void render(struct gfx_context_t *context)
 	int min_y = min_xy(tot_indice_swiss, y) / 80;
 	// int max_x = max_xy(tot_indice_swiss, x);
 	int max_y = max_xy(tot_indice_swiss, y);
-	int zoom = 2;
+	float zoom = 3.5;
 	// printf("Tot indice %d\n", tot_indice_cities);
 
 	gfx_clear(context, COLOR_WHITE);
-	printf("%d",tot_indice_swiss);
 	for (int i = 0; i < tot_indice_swiss; i++)
 	{
 		if(i<tot_indice_swiss-1)
