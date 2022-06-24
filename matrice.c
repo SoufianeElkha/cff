@@ -142,27 +142,27 @@ void matrice_next(File path_next, int tot_indice, int matr[tot_indice][tot_indic
 // Return Nombre de l'indice de la Ville pris in input
 // type --> si 0 alors on return le depart
 // type --> si 1 alors on return l'arrive
-char *input(char *depart, char *arrive, int tot_indice, Liste *my_cities, int type)
+char *input(char *name, int tot_indice, Liste *my_cities, int type)
 {
     if (type == 0)
     {
-        printf("\nDepart: ");
-        scanf("%s", depart);
+        // printf("\nDepart: ");
+        // scanf("%s", name);
 
-        if (existe(tot_indice, my_cities, depart) != 1)
+        if (existe(tot_indice, my_cities, name) != 1)
             printf("Ville non trouvée\n");
 
-        return depart;
+        return name;
     }
 
     if (type == 1)
     {
-        printf("Arrive: ");
-        scanf("%s", arrive);
-        if (existe(tot_indice, my_cities, arrive) != 1)
+        // printf("Arrive: ");
+        // scanf("%s", name);
+        if (existe(tot_indice, my_cities, name) != 1)
             printf("Ville non trouvée\n");
 
-        return arrive;
+        return name;
     }
     return 0;
 }

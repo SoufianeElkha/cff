@@ -42,9 +42,11 @@ int main()
     while (strcmp(buffer, "quitter") != 0)
     {
 
+        scanf("%99s", buffer);
         // Convertion de Ville en entree vers de nombre
-        int dep = convert_ville_to_nbr(input(depart, arrive, tot_indice, my_cities, 0), tot_indice, my_cities);
-        int arr = convert_ville_to_nbr(input(arrive, arrive, tot_indice, my_cities, 1), tot_indice, my_cities);
+        int dep = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 0), tot_indice, my_cities);
+        scanf("%99s", buffer);
+        int arr = convert_ville_to_nbr(input(buffer,tot_indice, my_cities, 1), tot_indice, my_cities);
         int cnt = 0;
         // enfiler 1er Ville
         enfiler(path, dep);
