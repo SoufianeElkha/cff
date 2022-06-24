@@ -10,7 +10,7 @@ make run
 ```
 
 
-![rundiag](exemple/pint_ex.png)
+![rundiag](exemple/print_ex.png)
 
 ![rundiag](exemple/Geneve-Coire.png)
 
