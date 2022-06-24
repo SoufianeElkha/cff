@@ -2,7 +2,7 @@
 #include <string.h>
 #include <malloc.h>
 #include "lire_file.h"
-#include "liste.h"
+#include "file.h"
 #include "cellule.h"
 
 int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
@@ -15,7 +15,7 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
     printf("Error opening file.\n");
     return 0;
   }
-
+  // lecture 2 string et 1 int
   if (type_file == 0)
   {
     do
@@ -31,6 +31,7 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
     } while (!feof(file));
   }
 
+  // Lecture 2 int
   if (type_file == 1)
   {
     do
@@ -43,7 +44,7 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
       records++;
     } while (!feof(file));
   }
-
+  // Lecture 1string et 2 int
   if (type_file == 2)
   {
     do
@@ -58,93 +59,4 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
   }
   fclose(file);
   return records;
-}
-
-int convert_ville_to_nbr(char *nome, int tot_indice, Liste *my_cities)
-{
-  int nb_ville = 0;
-  // Convert Nom Ville to Nbr Int de la liste
-  for (int i = 0; i < tot_indice; i++)
-  {
-    if (strcmp(my_cities[i].ville1, nome) == 0)
-    {
-      nb_ville = i;
-    }
-  }
-  return nb_ville;
-}
-
-void matrice_original(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
-{
-
-  for (int i = 0; i < tot_indice; i++)
-  {
-    for (int j = 0; j < tot_indice; j++)
-    {
-      matr[i][i] = 0;
-      next[i][j] = j;
-      next[i][i] = 0;
-      matr[j][i] = matr[i][j];
-    }
-  }
-}
-
-void matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
-{
-  // Matrice Next
-  for (int k = 0; k < tot_indice; ++k)
-  {
-    for (int i = 0; i < tot_indice; ++i)
-    {
-      for (int j = 0; j < tot_indice; ++j)
-      {
-        if (matr[i][j] > matr[i][k] + matr[k][j])
-        {
-          matr[i][j] = matr[i][k] + matr[k][j];
-          next[i][j] = next[i][k];
-        }
-      }
-    }
-  }
-}
-
-// Return Nombre de l'indice de la Ville pris in input
-// type --> si 0 alors on return le depart
-// type --> si 1 alors on return l'arrive
-char *input(char *depart, char *arrive, int tot_indice, Liste *my_cities, int type)
-{
-
-  if (type == 0)
-  {
-    printf("\nDepart: ");
-    scanf("%s", depart);
-
-    if (exixte(tot_indice, my_cities, depart) != 1)
-      printf("Ville non trouvée\n");
-
-    return depart;
-  }
-
-  if (type == 1)
-  {
-    printf("Arrive: ");
-    scanf("%s", arrive);
-    if (exixte(tot_indice, my_cities, arrive) != 1)
-      printf("Ville non trouvée\n");
-
-    return arrive;
-  }
-  return 0;
-}
-
-void free_tot(char *__ptr1, char *__ptr2, char *__ptr3, char *__ptr4, char *__ptr5)
-{
-
-  free(__ptr1);
-  free(__ptr2);
-  free(__ptr3);
-  free(__ptr4);
-  free(__ptr5);
-
-  fflush(stdout);
 }
