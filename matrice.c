@@ -13,9 +13,9 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
     int *tab = malloc(tot_indice * sizeof(int *));
     int add = 0;
     int a = 0;
-    printf("\nChemins:\n[");
+    printf("\n>Le trajet est:[");
     if (F == NULL)
-        printf("erreur print_file");
+        printf(">erreur print_file");
     cellule = F->tete;
 
     while (cellule != NULL)
@@ -28,12 +28,12 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
             tab = realloc(tab, 10 * sizeof(int));
     }
     tab[a + 1] = 0;
-    printf("]\n");
+    printf("]");
 
     for (int i = 0; i < (longueur(F)-1); i++)
         add = matr[tab[i]][tab[i + 1]] + add;
 
-    printf("\nTemps de parcours est: %d minutes", add);
+    printf("\n>Le temps de parcours est: %d minutes", add);
 
     free(tab);
     free(cellule);
@@ -146,22 +146,28 @@ char *input(char *name, int tot_indice, Liste *my_cities, int type)
 {
     if (type == 0)
     {
-        // printf("\nDepart: ");
-        // scanf("%s", name);
-
         if (existe(tot_indice, my_cities, name) != 1)
-            printf("Ville non trouvée\n");
+            printf(">Ville non trouvée\n");
+        while (existe(tot_indice, my_cities, name) != 1)
+        {
+            printf(">Entrez une ville de départ: ");
+            scanf("%s", name);
+            exit_prog(name);
 
+        }
         return name;
     }
 
     if (type == 1)
     {
-        // printf("Arrive: ");
-        // scanf("%s", name);
         if (existe(tot_indice, my_cities, name) != 1)
-            printf("Ville non trouvée\n");
-
+            printf(">Ville non trouvée\n");
+        while (existe(tot_indice, my_cities, name) != 1)
+        {
+            printf(">Entrez une ville de d'arrivée: ");
+            scanf("%s", name);
+            exit_prog(name);
+        }
         return name;
     }
     return 0;

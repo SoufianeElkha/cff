@@ -47,54 +47,29 @@ void enfiler(File F, typage element)
    ++(F->longueur);
 }
 
-// typage tete(File F)
-// {
-//    if (F == NULL || longueur(F) == 0)
-//       printf(" File existe pas - tete");
-//    return (F->tete->element);
-// }
+typage tete(File F)
+{
+   if (F == NULL || longueur(F) == 0)
+      printf(" File existe pas - tete");
+   return (F->tete->element);
+}
 
-// void defiler(File F)
-// {
-//    Cellule cellule;
+void defiler(File F)
+{
+   Cellule cellule;
 
-//    if (F == NULL || longueur(F) == 0)
-//       printf("File existe pas - defiler");
-//    cellule = F->tete;
-//    if (longueur(F) == 1)
-//       F->tete = F->queue = NULL;
-//    else
-//       F->tete = F->tete->suivant;
-//    --(F->longueur);
-//    free(cellule);
-// }
-
-// typage defilement(File F)
-// {
-//    Cellule cellule;
-//    typage element;
-//    if (F == NULL || longueur(F) == 0)
-//       printf("File existe pas - defilement");
-//    cellule = F->tete;
-//    element = cellule->element;
-//    if (longueur(F) == 1)
-//    {
-//       F->tete = F->queue = NULL;
-//    }
-//    else
-//    {
-//       F->tete = F->tete->suivant;
-//    }
-
-//    --(F->longueur);
-//    return (element);
-// }
-
-void delete(File F){
-   for (int i =0; i < (F->longueur); i++)
+   if (F == NULL || longueur(F) == 0)
+      printf("File existe pas - defiler");
+   while (longueur(F) != 0)
    {
-      F->tete->element = -1;
-      free(F->tete->suivant);
+
+      cellule = F->tete;
+      if (longueur(F) == 1)
+         F->tete = F->queue = NULL;
+      else
+         F->tete = F->tete->suivant;
+      --(F->longueur);
    }
+   free(cellule);
    free(F);
 }

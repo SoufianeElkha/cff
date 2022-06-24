@@ -29,7 +29,7 @@ int main()
     int matr[tot_indice][tot_indice];
     int next[tot_indice][tot_indice];
 
-    char buffer[100];
+    char *buffer=(char*)malloc(400*sizeof(char*));
     int width = 1250, height = 1000;
 
     // Traduction Ville -> Nombre && Creation Matrice
@@ -41,12 +41,12 @@ int main()
 
     while (strcmp(buffer, "quitter") != 0)
     {
-        printf("Entrez une ville de départ: ");
+        printf(">Entrez une ville de départ: ");
         scanf("%99s", buffer);
         exit_prog(buffer);
         // Convertion de Ville en entree vers de nombre
         int dep = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 0), tot_indice, my_cities);
-        printf("Entrez une ville de d'arrivée: ");
+        printf(">Entrez une ville de d'arrivée: ");
         scanf("%99s", buffer);
         exit_prog(buffer);
         int arr = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 1), tot_indice, my_cities);
@@ -63,31 +63,29 @@ int main()
         exit_prog(buffer);
         // Print la liste complet de chemis parcouire
         print_file(path, my_cities, tot_indice, matr);
-
-        printf("\nMaps ? y/n:");
+        defiler(path);
+        printf("\n>Imprimer le trajet ? y/n:");
         scanf("%99s", buffer);
-                exit_prog(buffer);
+        exit_prog(buffer);
         if (buffer[0] == 'y')
         {
             struct gfx_context_t *ctxt = gfx_create("CFF", width, height);
             if (!ctxt)
             {
-                fprintf(stderr, "Graphics initialization failed!\n");
+                fprintf(stderr, ">Graphics initialization failed!\n");
                 return EXIT_FAILURE;
             }
             render(ctxt);
             gfx_present(ctxt);
-            // printf("> ");
-            // scanf("%99s", buffer);
         }
+
     }
 
     // defiler(path);
     // Liberation de la memoire occupe
     // delete(path_next);
     free_tot(ville1, ville2, name);
-    free(path);
-    free(buffer);
+    //free(buffer);
     fflush(stdout);
 
     exit(0);
