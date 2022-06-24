@@ -82,6 +82,11 @@ void render(struct gfx_context_t *context, File F)
 		gfx_drawline(context, (my_cities[tab[i]].dist - min_x) * zoom, (max_y - my_cities[tab[i]].indice - min_y) * zoom,
 					 (my_cities[tab[i + 1]].dist - min_x) * zoom, (max_y - my_cities[tab[i + 1]].indice - min_y) * zoom,
 					 COLOR_RED);
+		// Première ville de couleur Rouge plus grande
+		gfx_drawrect(context, (my_cities[tab[0]].dist - min_x) * zoom, (max_y - my_cities[tab[0]].indice - min_y) * zoom, 20, 20, COLOR_RED);
+		// Chemin des villes avec la couleur rouge
+		gfx_drawrect(context, (my_cities[tab[i]].dist - min_x) * zoom, (max_y - my_cities[tab[i]].indice - min_y) * zoom, 10, 10, COLOR_RED);
+		gfx_drawrect(context, (my_cities[tab[i + 1]].dist - min_x) * zoom, (max_y - my_cities[tab[i + 1]].indice - min_y) * zoom, 10, 10, COLOR_RED);
 	}
 
 	// Libre la mémoire

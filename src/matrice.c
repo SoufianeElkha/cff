@@ -7,7 +7,7 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
     int *tab = malloc(tot_indice * sizeof(int *));
     int addition = 0;
     int a = 0;
-    printf("\n>Le trajet est:[");
+    printf(">Le trajet est : [");
     if (F == NULL)
         printf(">erreur print_file");
     cellule = F->tete;

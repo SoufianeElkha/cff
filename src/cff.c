@@ -79,7 +79,7 @@ int main()
         defiler(path);
     }
     // Liberation de la memoire occupe
-    free_tot(ville1, ville2, name,buffer,path,path_next);
+    free_tot(ville1, ville2, name, buffer, path, path_next);
 
     exit(0);
 }

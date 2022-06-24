@@ -14,7 +14,7 @@ $(OBJECTS): %.o: %.c $(HEADERS)
 	$(CC) -c $(FLAGS) $<
 
 run:
-	./cff
+	clear && ./cff
 
 clean:
 	rm -rf *.o $(TARGET)
