@@ -19,5 +19,6 @@ void enfiler(File F, typage element);
 void defiler(File F);
 typage tete(File F);
 typage defilement(File F);
+void delete(File F);
 
 #endif

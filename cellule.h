@@ -11,5 +11,4 @@ struct _cellule
 };
 
 typedef struct _cellule *Cellule;
-
 #endif

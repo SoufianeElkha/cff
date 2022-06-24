@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include "gfx.h"
+#include "drawing.h"
 
 /// Create graphic window.
 /// @param title Title of the window.

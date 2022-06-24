@@ -89,3 +89,12 @@ void enfiler(File F, typage element)
 //    --(F->longueur);
 //    return (element);
 // }
+
+void delete(File F){
+   for (int i =0; i < (F->longueur); i++)
+   {
+      F->tete->element = -1;
+      free(F->tete->suivant);
+   }
+   free(F);
+}

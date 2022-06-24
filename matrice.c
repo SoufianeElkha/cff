@@ -10,12 +10,14 @@
 void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][tot_indice])
 {
     Cellule cellule;
+    int *tab = malloc(tot_indice * sizeof(int *));
+    int add = 0;
+    int a = 0;
     printf("\nChemins:\n[");
     if (F == NULL)
         printf("erreur print_file");
     cellule = F->tete;
-    int *tab = malloc(tot_indice * sizeof(int *));
-    int a = 0;
+
     while (cellule != NULL)
     {
         tab[a] = cellule->element;
@@ -27,11 +29,11 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
     }
     tab[a + 1] = 0;
     printf("]\n");
-    int somma = 0;
-    for (int i = 0; i < (longueur(F) - 1); i++)
-        somma = matr[tab[i]][tab[i + 1]] + somma;
 
-    printf("\nTemps de parcours est: %d minutes", somma);
+    for (int i = 0; i < (longueur(F)-1); i++)
+        add = matr[tab[i]][tab[i + 1]] + add;
+
+    printf("\nTemps de parcours est: %d minutes", add);
 
     free(tab);
     free(cellule);
@@ -123,7 +125,7 @@ void matrice_original(int tot_indice, int matr[tot_indice][tot_indice], int next
         }
 }
 
-int matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
+void matrice_next(File path_next, int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
 {
     // Matrice Next
     for (int k = 0; k < tot_indice; ++k)
@@ -133,6 +135,7 @@ int matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_
                 {
                     matr[i][j] = matr[i][k] + matr[k][j];
                     next[i][j] = next[i][k];
+                    enfiler(path_next, next[i][j]);
                 }
 }
 

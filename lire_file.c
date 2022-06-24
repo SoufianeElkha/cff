@@ -80,7 +80,6 @@ int lire_file_perimetre(char* name_file, int *x, int *y){
             y_char = strtok(NULL,"\n");
             x[i]=atoi(x_char);
             y[i]=atoi(y_char);
-            printf("%d %d\n", x[i], y[i]);
             i++;
         }
     }else
