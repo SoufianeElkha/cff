@@ -1,9 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
 #include "lire_file.h"
-#include "file.h"
-#include "cellule.h"
 
 int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
 {
@@ -87,5 +86,6 @@ int lire_file_perimetre(char* name_file, int *x, int *y){
 
     fclose(fid);
     fflush(stdin);
+
     return i;
 }

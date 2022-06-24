@@ -6,7 +6,7 @@
 
 void hm_import();
 
-void hm_import(){
+void lire_file_perimetre(){
 
     char *import_database;
     char table[TMP_MAX];
