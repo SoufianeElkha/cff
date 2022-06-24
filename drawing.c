@@ -38,25 +38,30 @@ void render(struct gfx_context_t *context)
 	// printf("Tot indice %d\n", tot_indice_cities);
 
 	gfx_clear(context, COLOR_WHITE);
-
-	for (int i = 0; i <= tot_indice_swiss; i++)
+	printf("%d",tot_indice_swiss);
+	for (int i = 0; i < tot_indice_swiss; i++)
 	{
 		if(i<tot_indice_swiss-1)
 			gfx_drawline(context, (x[i] - min_x) * zoom, (max_y - y[i] - min_y) * zoom, (x[i + 1] - min_x) * zoom, (max_y - y[i + 1] - min_y) * zoom, COLOR_BLACK);
-		int a=0;
-		if(i==tot_indice_swiss)
-			gfx_drawline(context, (x[i] - min_x) * zoom, (max_y - y[i] - min_y) * zoom, (x[a] - min_x) * zoom, (max_y - y[a] - min_y) * zoom, COLOR_BLACK);
-	}
 
+		if(i==tot_indice_swiss-1)
+			gfx_drawline(context, (x[i] - min_x) * zoom, (max_y - y[i] - min_y) * zoom, (x[0] - min_x) * zoom, (max_y - y[0] - min_y) * zoom, COLOR_BLACK);
+}
 	for (int i = 0; i < tot_indice_cities; i++)
 	{
 		gfx_drawrect(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom, 10, 10, COLOR_BLUE);
 	}
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < tot_indice_cities; i++)
 	{
+		if(i<tot_indice_cities-1)
 		gfx_drawline(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom,
 					 (my_cities[i + 1].dist - min_x) * zoom, (max_y - my_cities[i + 1].indice - min_y) * zoom,
+					 COLOR_RED);
+
+		if(i==tot_indice_cities-1)
+				gfx_drawline(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom,
+					 (my_cities[0].dist - min_x) * zoom, (max_y - my_cities[0].indice - min_y) * zoom,
 					 COLOR_RED);
 	}
 
