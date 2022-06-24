@@ -167,13 +167,19 @@ char *input(char *name, int tot_indice, Liste *my_cities, int type)
     return 0;
 }
 
-void free_tot(char *__ptr1, char *__ptr2, char *__ptr3, char *__ptr4, char *__ptr5)
+void free_tot(char *__ptr1, char *__ptr2, char *__ptr3)
 {
     free(__ptr1);
     free(__ptr2);
     free(__ptr3);
-    free(__ptr4);
-    free(__ptr5);
 
     fflush(stdout);
+}
+
+void exit_prog(char *buffer)
+{
+    if (strcmp(buffer, "quitter") == 0)
+    {
+        exit(0);
+    }
 }

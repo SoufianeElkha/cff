@@ -24,8 +24,8 @@ int main()
     char *name = (char *)malloc((strlen(my_cities[0].ville1) + 10) * sizeof(char));
     char *ville1 = (char *)malloc((strlen(my_connections[0].ville1) + 10) * sizeof(char));
     char *ville2 = (char *)malloc((strlen(my_connections[0].ville2) + 10) * sizeof(char));
-    char *depart = (char *)malloc(30 * sizeof(char *));
-    char *arrive = (char *)malloc(30 * sizeof(char *));
+    // char *depart = (char *)malloc(30 * sizeof(char *));
+    // char *arrive = (char *)malloc(30 * sizeof(char *));
     int matr[tot_indice][tot_indice];
     int next[tot_indice][tot_indice];
 
@@ -41,12 +41,15 @@ int main()
 
     while (strcmp(buffer, "quitter") != 0)
     {
-
+        printf("Entrez une ville de départ: ");
         scanf("%99s", buffer);
+        exit_prog(buffer);
         // Convertion de Ville en entree vers de nombre
         int dep = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 0), tot_indice, my_cities);
+        printf("Entrez une ville de d'arrivée: ");
         scanf("%99s", buffer);
-        int arr = convert_ville_to_nbr(input(buffer,tot_indice, my_cities, 1), tot_indice, my_cities);
+        exit_prog(buffer);
+        int arr = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 1), tot_indice, my_cities);
         int cnt = 0;
         // enfiler 1er Ville
         enfiler(path, dep);
@@ -57,12 +60,13 @@ int main()
             cnt++;
         }
 
+        exit_prog(buffer);
         // Print la liste complet de chemis parcouire
         print_file(path, my_cities, tot_indice, matr);
 
         printf("\nMaps ? y/n:");
-
         scanf("%99s", buffer);
+                exit_prog(buffer);
         if (buffer[0] == 'y')
         {
             struct gfx_context_t *ctxt = gfx_create("CFF", width, height);
@@ -73,18 +77,18 @@ int main()
             }
             render(ctxt);
             gfx_present(ctxt);
-            printf("> ");
-            scanf("%99s", buffer);
+            // printf("> ");
+            // scanf("%99s", buffer);
         }
     }
 
     // defiler(path);
     // Liberation de la memoire occupe
     // delete(path_next);
-    free_tot(ville1, ville2, name, depart, arrive);
+    free_tot(ville1, ville2, name);
     free(path);
     free(buffer);
     fflush(stdout);
 
-    return 0;
+    exit(0);
 }

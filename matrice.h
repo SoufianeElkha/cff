@@ -11,6 +11,7 @@ int convert_ville_to_nbr(char *nome, int tot_indice, Liste *my_cities);
 void matrice_original(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice]);
 void matrice_next(File path_next, int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice]);
 char *input(char *name,int tot_indice, Liste *my_cities, int type);
-void free_tot(char *__ptr1, char *__ptr2, char *__ptr3, char *__ptr4, char *__ptr5);
+void free_tot(char *__ptr1, char *__ptr2, char *__ptr3);
+void exit_prog(char *buffer);
 
 #endif
