@@ -60,3 +60,5 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
   fclose(file);
   return records;
 }
+
+
