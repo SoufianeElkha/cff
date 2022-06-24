@@ -1,9 +1,8 @@
 # tp17 - Soufiane El kharmoudi
 # Recherce du plus court chemin dans un réseau ferré
 
-## Voici les commandes pour exécuter le programme:
-
-## Se déplacer dans le dossier src :
+### Voici les commandes pour exécuter le programme:
+### Se déplacer dans le dossier src :
 
 ```c
 make clean && make
