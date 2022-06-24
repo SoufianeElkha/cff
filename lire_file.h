@@ -14,5 +14,5 @@ Liste my_cities[1000];
 Liste my_connections[1000];
 
 int lire_file(Liste *my_liste, char *name_file, int records, int type_file);
-
+int lire_file_perimetre(char* name_file, int *x, int *y);
 #endif

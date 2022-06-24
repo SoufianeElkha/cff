@@ -123,7 +123,7 @@ void matrice_original(int tot_indice, int matr[tot_indice][tot_indice], int next
         }
 }
 
-void matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
+int matrice_next(int tot_indice, int matr[tot_indice][tot_indice], int next[tot_indice][tot_indice])
 {
     // Matrice Next
     for (int k = 0; k < tot_indice; ++k)

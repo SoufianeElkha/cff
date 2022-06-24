@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
 #include "lire_file.h"
@@ -54,7 +55,7 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
              my_liste[records].ville1,
              &my_liste[records].dist,
              &my_liste[records].indice);
-
+      records++;
     } while (!feof(file));
   }
   fclose(file);
