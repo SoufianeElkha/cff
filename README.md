@@ -1,8 +1,16 @@
 tp17
 ## Recherce du plus court chemin dans un réseau ferré
 
+Voici les commandes pour exécuter le programme:
+    se déplacer dans le dossier src :
 
-![rundiag](exemple/pint ex.png)
+```c
+make clean && make
+make run
+```
+
+
+![rundiag](exemple/pint_ex.png)
 
 ![rundiag](exemple/Geneve-Coire.png)
 
