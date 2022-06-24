@@ -6,7 +6,6 @@
 #include "cellule.h"
 #include "drawing.h"
 
-
 int min_xy(int tot_indice, int *y)
 {
 	int min = y[0];
@@ -34,7 +33,7 @@ void render(struct gfx_context_t *context, File F)
 	int tot_indice_swiss = lire_file_perimetre("data/swiss.txt", x, y);
 	int tot_indice_cities = lire_file(my_cities, "data/cities.csv", 0, 2);
 	int min_x = min_xy(tot_indice_swiss, x);
-	int min_y = min_xy(tot_indice_swiss, y) /100;
+	int min_y = min_xy(tot_indice_swiss, y) / 100;
 	int max_y = max_xy(tot_indice_swiss, y);
 	float zoom = 3.5;
 
@@ -51,7 +50,7 @@ void render(struct gfx_context_t *context, File F)
 	{
 		gfx_drawrect(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom, 10, 10, COLOR_BLUE);
 	}
-	int *tab = malloc((15*15) * sizeof(int *));
+	int *tab = malloc((15 * 15) * sizeof(int *));
 	int a = 0;
 
 	while (cellule != NULL)
@@ -61,27 +60,27 @@ void render(struct gfx_context_t *context, File F)
 		a++;
 	}
 
-	for (int i = 0; i < a-1; i++)
+	for (int i = 0; i < a - 1; i++)
 	{
 		gfx_drawline(context, (my_cities[tab[i]].dist - min_x) * zoom, (max_y - my_cities[tab[i]].indice - min_y) * zoom,
 					 (my_cities[tab[i + 1]].dist - min_x) * zoom, (max_y - my_cities[tab[i + 1]].indice - min_y) * zoom,
 					 COLOR_RED);
 	}
-		// for (int i = 0; i < tot_indice_cities; i++)
-		// {
-		// 	if(i<tot_indice_cities-1)
-		// 	gfx_drawline(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom,
-		// 				 (my_cities[i + 1].dist - min_x) * zoom, (max_y - my_cities[i + 1].indice - min_y) * zoom,
-		// 				 COLOR_RED);
+	// for (int i = 0; i < tot_indice_cities; i++)
+	// {
+	// 	if(i<tot_indice_cities-1)
+	// 	gfx_drawline(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom,
+	// 				 (my_cities[i + 1].dist - min_x) * zoom, (max_y - my_cities[i + 1].indice - min_y) * zoom,
+	// 				 COLOR_RED);
 
-		// 	if(i==tot_indice_cities-1)
-		// 			gfx_drawline(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom,
-		// 				 (my_cities[0].dist - min_x) * zoom, (max_y - my_cities[0].indice - min_y) * zoom,
-		// 				 COLOR_RED);
-		// }
+	// 	if(i==tot_indice_cities-1)
+	// 			gfx_drawline(context, (my_cities[i].dist - min_x) * zoom, (max_y - my_cities[i].indice - min_y) * zoom,
+	// 				 (my_cities[0].dist - min_x) * zoom, (max_y - my_cities[0].indice - min_y) * zoom,
+	// 				 COLOR_RED);
+	// }
 
-		free(x);
-		free(y);
-		free(tab);
-		fflush(stdout);
-	}
+	free(x);
+	free(y);
+	free(tab);
+	fflush(stdout);
+}

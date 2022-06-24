@@ -30,13 +30,13 @@ void print_file(File F, Liste *my_cities, int tot_indice, int matr[tot_indice][t
     tab[a + 1] = 0;
     printf("]");
 
-    for (int i = 0; i < (longueur(F)-1); i++)
+    for (int i = 0; i < (longueur(F) - 1); i++)
         add = matr[tab[i]][tab[i + 1]] + add;
 
     printf("\n>Le temps de parcours est: %d minutes", add);
 
     free(tab);
-    //free(cellule);
+    // free(cellule);
 }
 // Retourn 1 si la ville existe dans le tableau
 int existe(int tot_indice, Liste *my_cities, char *ville)
@@ -166,7 +166,6 @@ char *input(char *name, int tot_indice, Liste *my_cities, int type)
             printf(">Entrez une ville de départ: ");
             scanf("%s", name);
             exit_prog(name);
-
         }
         return name;
     }

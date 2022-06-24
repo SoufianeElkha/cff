@@ -9,7 +9,6 @@
 #include "drawing.h"
 #include "gfx.h"
 
-
 int main()
 {
     // Declaration dela liste
@@ -70,11 +69,10 @@ int main()
                 fprintf(stderr, ">Graphics initialization failed!\n");
                 return EXIT_FAILURE;
             }
-            render(ctxt,path);
+            render(ctxt, path);
             gfx_present(ctxt);
             defiler(path_next);
         }
-        
     }
     // Liberation de la memoire occupe
     free_tot(ville1, ville2, name);

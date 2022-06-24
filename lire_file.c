@@ -62,30 +62,34 @@ int lire_file(Liste *my_liste, char *name_file, int records, int type_file)
   return records;
 }
 
-int lire_file_perimetre(char* name_file, int *x, int *y){
+int lire_file_perimetre(char *name_file, int *x, int *y)
+{
 
-    char *import_database;
-    char table[TMP_MAX];
-    char *x_char;
-    char *y_char;
-    int i=0;
-    FILE *fid;
-    fid=fopen(name_file, "r");
-    if(fid){
-        while(1) {
-            import_database=fgets(table,999, fid);
-            if( import_database==NULL )
-                break;
-            x_char = strtok(table," ");
-            y_char = strtok(NULL,"\n");
-            x[i]=atoi(x_char);
-            y[i]=atoi(y_char);
-            i++;
-        }
-    }else
-        printf("\nErreur d’ouverture de fichier\n");
+  char *import_database;
+  char table[TMP_MAX];
+  char *x_char;
+  char *y_char;
+  int i = 0;
+  FILE *fid;
+  fid = fopen(name_file, "r");
+  if (fid)
+  {
+    while (1)
+    {
+      import_database = fgets(table, 999, fid);
+      if (import_database == NULL)
+        break;
+      x_char = strtok(table, " ");
+      y_char = strtok(NULL, "\n");
+      x[i] = atoi(x_char);
+      y[i] = atoi(y_char);
+      i++;
+    }
+  }
+  else
+    printf("\nErreur d’ouverture de fichier\n");
 
-    fclose(fid);
-    fflush(stdin);
-    return i;
+  fclose(fid);
+  fflush(stdin);
+  return i;
 }
