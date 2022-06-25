@@ -25,12 +25,13 @@ make run
 1. Impression correcte du trajet avec les noms des villes
 2. Impression correcte des minutes du trajet
 3. J’ai créé la fonction d’erreur de saisie de la ville
-4. Connexions entre les cités de couleur verte
-5. Trajet de couleur Rouge
-6. Ville de départ avec le plus grand carré par rapport aux autres villes
-7. Itinéraire avec changement de couleur du cadre en rouge pour mieux identifier le trajet 
-8. Lorsque je cherche un itinéraire, je peux décider d’imprimer la carte ou non, même si j’imprime la carte, je peux effectuer une autre    recherche et mettre à jour la carte.
-9. Gestion correcte du mode "Quitter"
+4. Impression de la carte Suisse
+5. Connexions entre les cités de couleur verte
+6. Trajet de couleur Rouge
+7. Ville de départ avec le plus grand carré par rapport aux autres villes
+8. Itinéraire avec changement de couleur du cadre en rouge pour mieux identifier le trajet 
+9. Lorsque je cherche un itinéraire, je peux décider d’imprimer la carte ou non, même si j’imprime la carte, je peux effectuer une autre    recherche et mettre à jour la carte.
+10. Gestion correcte du mode "Quitter"
 
 # Erreurs
 
