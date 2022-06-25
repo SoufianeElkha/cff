@@ -8,6 +8,7 @@
 make clean && make
 make run
 ```
+### Exemple de fonctionnement:
 
 ![rundiag](exemple/print_ex.png)
 
