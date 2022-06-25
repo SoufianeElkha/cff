@@ -1,3 +1,10 @@
+/*
+    Soufiane El kharmoudi
+    tp17 -> Recherce du plus court chemin dans un réseau ferré
+    24/06/2022
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,6 +18,8 @@
 
 int main()
 {
+    printf("\nRecherce du plus court chemin dans un réseau ferré\n");
+    printf("====================================================\n\n");
     // Declaration liste
     File path = file_vide();
     File path_next = file_vide();
@@ -43,7 +52,7 @@ int main()
 
         // Convertion de Ville en entree vers de nombre
         int dep = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 0), tot_indice, my_cities);
-        printf(">Entrez une ville de d'arrivée: ");
+        printf(">Entrez une ville d'arrivée: ");
         scanf("%99s", buffer);
         exit_prog(buffer);
         int arr = convert_ville_to_nbr(input(buffer, tot_indice, my_cities, 1), tot_indice, my_cities);

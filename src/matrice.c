@@ -168,7 +168,7 @@ char *input(char *name, int tot_indice, Liste *my_cities, int type)
             printf(">Ville non trouvée\n");
         while (existe(tot_indice, my_cities, name) != 1)
         {
-            printf(">Entrez une ville de d'arrivée: ");
+            printf(">Entrez une ville d'arrivée: ");
             scanf("%s", name);
             exit_prog(name);
         }
