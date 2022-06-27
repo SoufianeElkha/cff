@@ -1,3 +1,12 @@
+# Evaluation
+
+![image.png](./image.png)
+![image-1.png](./image-1.png)
+![image-2.png](./image-2.png)
+
+Attention ! J’ai du ajouter un flag -fcommon pour éviter les problèmes de définiton multiple pour pouvoir compiler. Fonctions de liste dans fichier file. Manque des commentaires. Variables globales codées en dur. Affichage du réseau incorrecte. Globalement pas très bien structuré mais résultat final plutôt bon.
+
+
 # tp17 - Soufiane El kharmoudi
 # Recherce du plus court chemin dans un réseau ferré
 
