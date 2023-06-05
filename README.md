@@ -1,13 +1,3 @@
-# Evaluation
-
-![image.png](./image.png)
-![image-1.png](./image-1.png)
-![image-2.png](./image-2.png)
-
-Attention ! J’ai du ajouter un flag -fcommon pour éviter les problèmes de définiton multiple pour pouvoir compiler. Fonctions de liste dans fichier file. Manque des commentaires. Variables globales codées en dur. Affichage du réseau incorrecte. Globalement pas très bien structuré mais résultat final plutôt bon.
-
-
-# tp17 - Soufiane El kharmoudi
 # Recherce du plus court chemin dans un réseau ferré
 
 ### Voici les commandes pour exécuter le programme:
@@ -46,5 +36,3 @@ make run
 
 1. Manque à gérer la mémoire d’enfiler, même si j’ai fait le free en parcourant la liste, il me marque encore une erreur
 2. Les liaisons en vert entre les villes dans l’impression de la carte ne sont pas entièrement complètes.Cependant, les liaisons entre les villes de départ et d’arrivée sont exactes
-
-# Merci beaucoup pour le cours et pour l’enseignement que vous nous avez donné. 
